@@ -1,0 +1,29 @@
+<mat-toolbar class="mat-elevation-z5 w-100" color="primary">
+  <mat-toolbar-row class="d-flex justify-content-between">
+    <div>
+      <button mat-icon-button [routerLink]="homeLink">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+    <div class="user-menu">
+      <button mat-button [matMenuTriggerFor]="rootMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #rootMenu="matMenu">
+        <div *ngFor="let menu of extraLinks">
+          <button mat-menu-item [routerLink]="menu.link" *ngIf="hasAccess(menu.type)">
+            <mat-icon>{{ menu.icon }}</mat-icon>
+            <span>{{ menu.name }}</span>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div *ngFor="let menu of menuLinks">
+          <button mat-menu-item [routerLink]="menu.link" *ngIf="hasAccess(menu.type)">
+            <mat-icon>{{ menu.icon }}</mat-icon>
+            <span>{{ menu.name }}</span>
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

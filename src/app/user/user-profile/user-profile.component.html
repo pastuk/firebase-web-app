@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>User Profile</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="userProfileForm">
+      <mat-form-field>
+        <input matInput placeholder="Display Name" type="text" formControlName="displayName" maxlength="55" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Email Address" type="email" formControlName="email" maxlength="155" autocomplete="off">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="p-2">
+    <button mat-flat-button color="primary" (click)="updateProfile()">Update</button>
+  </mat-card-actions>
+</mat-card>

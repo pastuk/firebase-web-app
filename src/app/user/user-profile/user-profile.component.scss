@@ -1,0 +1,12 @@
+@media (min-width: 1281px) {
+  mat-form-field {
+    max-width: 50%;
+    display: block;
+  }
+}
+
+@media (max-width: 1280px) {
+  mat-form-field {
+    display: block;
+  }
+}

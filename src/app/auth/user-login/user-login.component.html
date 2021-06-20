@@ -1,0 +1,23 @@
+<mat-card class="mat-elevation-z8 bg-light">
+  <mat-card-header class="d-inline-block w-100">
+    <mat-card-title class="text-lg-center">Authorized User Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <mat-form-field class="w-100">
+        <input matInput autofocus placeholder="Email" formControlName="email" type="email" autocomplete="off" maxlength="55"
+               (keydown.enter)="authenticate()">
+        <mat-error *ngIf="isEmailRequired">Email is required</mat-error>
+        <mat-error *ngIf="isEmailInvalid">Invalid Email Format</mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Password" formControlName="pwd" type="password" autocomplete="off" maxlength="25"
+               (keydown.enter)="authenticate()">
+        <mat-error *ngIf="isPasswordRequired">Password is required</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="p-lg-2">
+    <button mat-flat-button color="primary" class="w-100" [disabled]="isLoginDisabled" (click)="authenticate()">Login</button>
+  </mat-card-actions>
+</mat-card>
